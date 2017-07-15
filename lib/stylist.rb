@@ -28,15 +28,13 @@ class Stylist
 
   define_method(:update) do |attributes|
     @name = attributes.fetch(:name)
-    @idnumber = attributes.fetch(:idnumber)
     @phonenumber = attributes.fetch(:phonenumber)
     @id = self.id()
-    DB.exec("UPDATE lists SET name = '#{@name}' WHERE id = #{@id};")
-    DB.exec("UPDATE lists SET idnumber = '#{@idnumber}' WHERE id = #{@id};")
-    DB.exec("UPDATE lists SET phonenumber = '#{@phonenumber}' WHERE id = #{@id};")
+    DB.exec("UPDATE stylists SET name = '#{@name}' WHERE id = #{@id};")
+    DB.exec("UPDATE stylists SET phonenumber = '#{@phonenumber}' WHERE id = #{@id};")
   end
 
-  def delete
+  define_method(:delete) do
     DB.exec("DELETE FROM stylists WHERE id = #{self.id()};")
     DB.exec("DELETE FROM clients WHERE stylist_id = #{self.id()};")
   end
@@ -60,9 +58,9 @@ class Stylist
     clients = DB.exec("SELECT * FROM clients WHERE stylist_id = #{self.id()};")
     clients.each() do |client|
       name = client.fetch("name")
-      phonenumber = client.fetch("phonenumber")
+      phonenumber = client.fetch("phonenumber").to_i()
       stylist_id = client.fetch("stylist_id").to_i()
-      stylist_clients.push(Client.new({:name => name, :stylist_id => stylist_id, :phonenumber => phonenumber}))
+      stylist_clients.push(Client.new({:name => name, :stylist_id => stylist_id, :phonenumber => phonenumber, :idnumber => idnumber}))
     end
     stylist_clients
   end
