@@ -57,6 +57,6 @@ patch("/stylists/:id") do
 end
 
 get("/stylists/:id") do
-  @stylist = Stylist.find(params.fetch("id").to_i())
+  @stylist = Stylist.find(params.fetch("id")).to_i()
   erb(:stylist)
 end

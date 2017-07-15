@@ -1,7 +1,8 @@
 <div class="jumbotron" style="text-align: center;">
   <h1>Hair Salon</h1>
+<hr>
 </div>
-<p>create a new stylist</p>
+<h4>create a new stylist</h4>
 <form action="/stylists" method="post">
 <div class="form-control">
 	<label for="name">Input the name of the stylist</label>
@@ -21,7 +22,7 @@
 </form>
 
 
-<p>Add Client to my stylist:</p>
+<h4>Add Client to my stylist:</h4>
 <form action="/clients" method="post">
   <label for="stylist_id">Select a stylist</label>
   <select id="stylist_id" name="stylist_id" type="text" class="browser-default">
@@ -42,10 +43,10 @@
   	<input id="phonenumber" name="phonenumber" type="number" required>
   </div>
   
-  <button type="submit" class="waves-effect waves-light red btn">Add Client</button>
+  <button type="submit" class="waves-effect waves-light btn">Add Client</button>
 </form>
 <% if @stylists.any?() %>
-  <p>Click on a Stylist to see the list of Clients:</p>
+  <h4>Click on a Stylist to see the list of Clients:</h4>
   <ul>
     <% @stylists.each do |stylist| %>
       <li>
@@ -56,5 +57,5 @@
       <% end%>
   </ul>
   <% else %>
-    <p>There are no stylists yet!</p>
+    <h5>There are no stylists yet!</h5>
     <% end %>
