@@ -1,3 +1,60 @@
-<div class="jumbotron">
+<div class="jumbotron" style="text-align: center;">
   <h1>Hair Salon</h1>
 </div>
+<p>create a new stylist</p>
+<form action="/stylists" method="post">
+<div class="form-control">
+	<label for="name">Input the name of the stylist</label>
+  	<input id="name" name="name" type="text" required>
+</div>
+  <div class="form-control">
+  	<label for="idnumber">input ID Number</label>
+  	<input id="idnumber" name="idnumber" type="number" required>
+  </div>
+
+  <div class="form-control">
+  	<label for="phonenumber">input Phone Number</label>
+  	<input id="phonenumber" name="phonenumber" type="number" required>
+  </div>
+
+  <button type="submit" class="waves-effect waves-light btn">Add Stylist</button>
+</form>
+
+
+<p>Add Client to my stylist:</p>
+<form action="/clients" method="post">
+  <label for="stylist_id">Select a stylist</label>
+  <select id="stylist_id" name="stylist_id" type="text" class="browser-default">
+    <% @stylists.each() do |stylist| %>
+      <option value="<%= stylist.id()%>">
+        <%= stylist.name() %>
+      </option>
+      <% end %>
+  </select>
+
+  <div class="form-control">
+	<label for="name" data-error="wrong" data-success="right">Name</label>
+  	<input id="name" name="name" type="text" required>
+  </div>
+
+  <div class="form-control">
+	<label for="phonenumber" data-error="wrong" data-success="right">Phone Number</label>
+  	<input id="phonenumber" name="phonenumber" type="number" required>
+  </div>
+  
+  <button type="submit" class="waves-effect waves-light red btn">Add Client</button>
+</form>
+<% if @stylists.any?() %>
+  <p>Click on a Stylist to see the list of Clients:</p>
+  <ul>
+    <% @stylists.each do |stylist| %>
+      <li>
+        <a href="/stylists/<%= stylist.id() %>">
+          <%= stylist.name() %>
+        </a>
+      </li>
+      <% end%>
+  </ul>
+  <% else %>
+    <p>There are no stylists yet!</p>
+    <% end %>
