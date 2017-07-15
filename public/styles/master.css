@@ -1,0 +1,13 @@
+body{
+	background-image: url("https://static.pexels.com/photos/207253/pexels-photo-207253.jpeg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+label{
+	font-size: 18px;
+	color: black;
+}
+input{
+	color: black;
+}
