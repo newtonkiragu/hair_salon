@@ -1,0 +1,49 @@
+<p><a href="/stylists/<%= @stylist.id() %>/edit">Edit <%= @stylist.name() %> stylist</a></p>
+<p><a href="/">Return to Main Page</a></p>
+
+
+<h1><%= @stylist.name() %></h1>
+
+<% if @stylist.client().any?() %>
+<h3>Here are all the clients in this stylist:</h3>
+
+<ul>
+<% @stylist.clients().each() do |client| %>
+  <li><%= client.name() %> </li>
+  <li><%= client.phonenumber() %> </li>
+<% end %>
+</ul>
+
+<% else %>
+<p>There are no clientss on this stylist!</p>
+<% end %>
+
+<h3>Add a client to <%= @stylist.name() %> </h3>
+
+<form action="/clients" method="post">
+<input id="stylist_id" name="stylist_id" type="hidden" value="<%= @stylist.id() %>">
+
+<div class="form-control">
+<label for="name">Name of the client:</label>
+<input id="name" name="name" type="text">
+</div>
+
+<div class="form-control">
+<label for="phonenumber">Phone Number of the client:</label>
+<input id="phonenumber" name="phonenumber" type="text">
+</div>
+
+<button type="submit" class="btn">Add client</button>
+</form>
+
+<hr>
+
+<div class="container">
+<a href="/">Home</a>
+<a href="/lists">View All Lists</a>
+<a href="/lists/new">Add New List</a>
+</div>
+
+<div class="container">
+<a href="/"><button class="btn white">Home</a>
+</div>
