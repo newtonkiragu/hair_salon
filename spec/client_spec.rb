@@ -1,3 +1,4 @@
+require 'spec_helper'
 describe(Client) do
   describe("#==")do
     it"is the same client if it has the same phonenumber" do
