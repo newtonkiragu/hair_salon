@@ -1,12 +1,3 @@
-require('client')
-require('spec_helper')
-require('rspec')
-require('pg')
-
-DB = PG.connect({:dbname => 'hair_salon_test'})
-
-
-
 describe(Client) do
   describe("#==")do
     it"is the same client if it has the same phonenumber" do

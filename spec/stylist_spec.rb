@@ -1,11 +1,3 @@
-require('rspec')
-require('pg')
-require('pry')
-require('spec_helper')
-require('stylist')
-
-DB = PG.connect({:dbname => 'hair_salon'})
-
 RSpec.configure do |config|
   config.after(:each) do
     DB.exec("DELETE FROM stylists *;")

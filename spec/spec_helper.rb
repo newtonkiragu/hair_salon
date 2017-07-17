@@ -3,6 +3,7 @@ require('pg')
 require('client')
 require('stylist')
 require('pry')
+require('capybara')
 
 DB = PG.connect(:dbname => 'hair_salon_test')
 

@@ -1,13 +1,16 @@
-body{
-	background-image: url("https://static.pexels.com/photos/207253/pexels-photo-207253.jpeg");
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: cover;
+body {
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://static.pexels.com/photos/341004/pexels-photo-341004.jpeg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
-label{
-	font-size: 18px;
-	color: black;
+
+label {
+    font-size: 18px;
+    color: white;
 }
-input{
-	color: black;
+
+input {
+    color: white;
 }
