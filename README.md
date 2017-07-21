@@ -47,7 +47,7 @@ $ CREATE DATABASE hair_salon_test WITH TEMPLATE hair_salon;
 To run tests for my app, run ```$ rspec``` in your terminal. If all is green, then the tests have successfully passed
 
 ## Deployment
-To deploy my app, run the code below and then navigate to `localhost:4657` in your web browser
+To deploy my app, run the code below and then navigate to `localhost:4567` in your web browser
 ```
 $ ruby app.rb
 ```
@@ -65,7 +65,7 @@ $ ruby app.rb
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License.
 
 ## Acknowledgments
 
