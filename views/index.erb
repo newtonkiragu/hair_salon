@@ -6,63 +6,53 @@
 <form action="/stylists" method="post">
   <div class="row">
     <div class="input-field col s6">
-      <input id="name" type="text" class="validate" required>
+      <input id="name" type="text" class="validate" name="name" required>
       <label for="name">Name</label>
     </div>
-    
     <div class="input-field col s6">
-      <input id="idnumber" type="number" class="validate" required>
+      <input id="idnumber" type="number" class="validate" name="idnumber" required>
       <label for="idnumber">ID Number</label>
     </div>
-
   </div>
-  <div class="form-control">
-    <label for="idnumber">input ID Number</label>
-    <input id="idnumber" name="idnumber" type="number" required>
-  </div>
-
-  <div class="form-control">
+  <div class="input-field">
     <label for="phonenumber">input Phone Number</label>
     <input id="phonenumber" name="phonenumber" type="number" required>
   </div>
-
   <button type="submit" class="waves-effect waves-light btn">Add Stylist</button>
 </form>
-
 <h4>Add Client to my stylist:</h4>
 <form action="/clients" method="post">
   <label for="stylist_id">Select a stylist</label>
   <select id="stylist_id" name="stylist_id" type="text" class="browser-default">
     <% @stylists.each() do |stylist| %>
-    <option value="<%= stylist.id()%>">
-      <%= stylist.name() %>
-    </option>
-    <% end %>
+      <option value="<%= stylist.id()%>">
+        <%= stylist.name() %>
+      </option>
+      <% end %>
   </select>
-
-  <div class="form-control">
-    <label for="name" data-error="wrong" data-success="right">Name</label>
-    <input id="name" name="name" type="text" required>
+  <div class="row">
+    <div class="input-field col s6">
+      <label for="name" data-error="wrong" data-success="right">Name</label>
+      <input id="name" name="name" type="text" required>
+    </div>
+    <div class="input-field col s6">
+      <label for="phonenumber" data-error="wrong" data-success="right">Phone Number</label>
+      <input id="phonenumber" name="phonenumber" type="number" required>
+    </div>
   </div>
-
-  <div class="form-control">
-    <label for="phonenumber" data-error="wrong" data-success="right">Phone Number</label>
-    <input id="phonenumber" name="phonenumber" type="number" required>
-  </div>
-
   <button type="submit" class="waves-effect waves-light btn">Add Client</button>
 </form>
 <% if @stylists.any?() %>
-<h4>Click on a Stylist to see the list of Clients:</h4>
-<ul>
-  <% @stylists.each do |stylist| %>
-  <li>
-    <a href="/stylists/<%= stylist.id() %>">
-      <%= stylist.name() %>
-    </a>
-  </li>
-  <% end%>
-</ul>
-<% else %>
-<h5>There are no stylists yet!</h5>
-<% end %>
+  <h4>Click on a Stylist to see the list of Clients:</h4>
+  <div class="collection">
+    <% @stylists.each do |stylist| %>
+      <li class="collection-item">
+        <a href="/stylists/<%= stylist.id() %>">
+          <%= stylist.name() %>
+        </a>
+      </li>
+      <% end%>
+  </div>
+  <% else %>
+    <h5>There are no stylists yet!</h5>
+    <% end %>

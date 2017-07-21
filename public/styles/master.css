@@ -1,20 +1,23 @@
 body {
-    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://static.pexels.com/photos/341004/pexels-photo-341004.jpeg) no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://static.pexels.com/photos/341004/pexels-photo-341004.jpeg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: white;
 }
 
 label {
-    font-size: 18px;
-    color: white;
+  font-size: 18px;
+  color: white;
 }
 
 input {
-    color: white;
+  color: white;
 }
 
-html {
-    color: white;
+
+#stylist_id {
+  color: black;
+  font-size: 18px;
 }
